@@ -16,7 +16,7 @@ $$
 
 exceeds zero. The input random variables are:
 
-- $ X_1 \sim \mathcal{N}(6, 2) $
+- $X_1 \sim \mathcal{N}(6, 2)$
 - $ X_2 \sim \text{Lognormal}(\text{median}=2,\ \text{cov}=0.3) $
 - $ X_3 \sim \text{Rayleigh}(\sigma=1) $
 
