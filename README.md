@@ -1,35 +1,46 @@
-# Monte Carlo Simulation – Overview
+# Monte Carlo Simulation – Python Adaptation
 
-This project uses a Monte Carlo simulation to estimate the probability that:
+This repository contains a small introductory example of Monte Carlo Simulation (MCS) adapted from the original MATLAB script **MCS_intro.m** written by **Prof. H.P. Gavin** (Duke University, CEE 251L – *Uncertainty, Design, and Optimization*).
 
-Y = sin(X₁) + sqrt(X₂) - exp(-X₃) - 2 > 0
-
-where X₁, X₂, and X₃ are random variables with different probability distributions.
+The goal is to illustrate how uncertainty in several random variables propagates through a nonlinear function.
 
 ---
 
-## What We Did
+## Problem Setup
 
-1. **Defined inputs**:  
-   - X₁: Normal (mean=6, std=2)  
-   - X₂: Lognormal (median=2, cov=0.3)  
-   - X₃: Rayleigh (scale=1)
+We estimate the probability that the function
 
-2. **Generated 1,000 random samples**  
-3. **Evaluated Y** for each sample  
-4. **Estimated failure probability** as `P(Y > 0)`  
-5. **Visualized** histograms and CDFs
+\[
+Y = \sin(X_1) + \sqrt{X_2} - e^{-X_3} - 2
+\]
 
----
+exceeds zero. The input random variables are:
 
-## Why Monte Carlo?
-
-Monte Carlo was useful here because the function is nonlinear and difficult to analyze analytically. It allowed us to numerically estimate the probability of failure using random sampling.
+- \( X_1 \sim \mathcal{N}(6, 2) \)
+- \( X_2 \sim \text{Lognormal}(\text{median}=2,\ \text{cov}=0.3) \)
+- \( X_3 \sim \text{Rayleigh}(\sigma=1) \)
 
 ---
 
-## Libraries Used
+## Method
 
-- **NumPy** – random sampling and math  
-- **SciPy** – probability distributions (normal, lognormal, Rayleigh)  
-- **Matplotlib** – visualizations (PDFs, histograms, CDFs)
+1. Draw \( N = 1000 \) independent samples from each distribution.  
+2. Compute \( Y^{(i)} = \sin(X_1^{(i)}) + \sqrt{X_2^{(i)}} - e^{-X_3^{(i)}} - 2 \).  
+3. Estimate the probability \( P(Y > 0) \) empirically:
+
+\[
+\widehat{P}(Y > 0) = \frac{1}{N}\sum_{i=1}^N \mathbf{1}\{ Y^{(i)} > 0 \}.
+\]
+
+4. Plot histograms and empirical CDFs of the inputs and of the resulting distribution of \(Y\).
+
+This demonstrates the basic mechanics of Monte Carlo Simulation:  
+**sample → evaluate → aggregate statistics**.
+
+---
+
+## Notes
+
+- This notebook is intended purely as an instructional translation from MATLAB to Python.  
+- All distribution parameter conversions (e.g., lognormal median–cov to scale/shape) follow standard formulas used in CEE 251L.  
+- Original MATLAB material © H.P. Gavin, Duke University.
