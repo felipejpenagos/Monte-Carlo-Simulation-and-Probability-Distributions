@@ -17,16 +17,16 @@ $$
 exceeds zero. The input random variables are:
 
 - $X_1 \sim \mathcal{N}(6, 2)$
-- $ X_2 \sim \text{Lognormal}(\text{median}=2,\ \text{cov}=0.3) $
-- $ X_3 \sim \text{Rayleigh}(\sigma=1) $
+- $X_2 \sim \text{Lognormal}(\text{median}=2,\ \text{cov}=0.3)$
+- $X_3 \sim \text{Rayleigh}(\sigma=1)$
 
 ---
 
 ## Method
 
-1. Draw $ N = 1000 $ independent samples from each distribution.  
-2. Compute $ Y^{(i)} = \sin(X_1^{(i)}) + \sqrt{X_2^{(i)}} - e^{-X_3^{(i)}} - 2 $.  
-3. Estimate the probability $ P(Y > 0) $ empirically:
+1. Draw $N = 1000$ independent samples from each distribution.  
+2. Compute $Y^{(i)} = \sin(X_1^{(i)}) + \sqrt{X_2^{(i)}} - e^{-X_3^{(i)}} - 2$.  
+3. Estimate the probability $P(Y > 0)$ empirically:
 
 $$
 \widehat{P}(Y > 0) = \frac{1}{N}\sum_{i=1}^N \mathbf{1}\{ Y^{(i)} > 0 \}.
