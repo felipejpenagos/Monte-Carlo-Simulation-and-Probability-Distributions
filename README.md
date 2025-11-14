@@ -1,4 +1,4 @@
-# Monte Carlo Simulation – Python Adaptation
+# Monte Carlo Simulation – Uncertainty Analysis 
 
 This repository contains a small introductory example of Monte Carlo Simulation (MCS) adapted from the original MATLAB script **MCS_intro.m** written by **Prof. H.P. Gavin** (Duke University, CEE 251L – *Uncertainty, Design, and Optimization*).
 
@@ -10,9 +10,9 @@ The goal is to illustrate how uncertainty in several random variables propagates
 
 We estimate the probability that the function
 
-\[
+$$
 Y = \sin(X_1) + \sqrt{X_2} - e^{-X_3} - 2
-\]
+$$
 
 exceeds zero. The input random variables are:
 
